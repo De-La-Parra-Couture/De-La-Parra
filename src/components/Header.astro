@@ -1,0 +1,98 @@
+---
+// Header.astro
+// Componente de navegación para De la Parra Couture
+// Menú overlay minimalista con ritmo lento
+const logoMobile = '/header-opt-1-mobile.png';
+const logoDesktop = '/header-opt-2.png';
+---
+
+<header class="dlp-header" id="dlp-header">
+  <div class="dlp-header__gradient" id="dlp-header-gradient"></div>
+  <div class="dlp-header__inner">
+    <!-- Logo -->
+    <a href="/" class="dlp-header__logo" aria-label="De la Parra Couture - Inicio">
+      <picture>
+        <source media="(min-width: 768px)" srcset={logoDesktop} />
+        <img
+          src={logoMobile}
+          alt="De la Parra Couture"
+          class="dlp-header__logo-image"
+          loading="lazy"
+          width="600"
+          height="180"
+        />
+      </picture>
+    </a>
+
+    <!-- Botón de menú -->
+    <button
+      class="dlp-header__menu-toggle"
+      id="dlp-menu-toggle"
+      aria-controls="dlp-main-navigation"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      type="button"
+    >
+      <span class="dlp-header__menu-label">Menú</span>
+      <span class="dlp-header__menu-icon">
+        <span class="dlp-header__menu-line" id="dlp-menu-line-1"></span>
+        <span class="dlp-header__menu-line" id="dlp-menu-line-2"></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Overlay del menú -->
+  <nav
+    id="dlp-main-navigation"
+    class="dlp-header__overlay"
+    role="navigation"
+    aria-label="Navegación principal"
+  >
+    <div class="dlp-header__overlay-inner">
+      <ul class="dlp-header__nav-list">
+        <li class="dlp-header__nav-item">
+          <a href="#aida" class="dlp-header__nav-link" data-dlp-nav-link>
+            <span class="dlp-header__nav-number">01</span>
+            La Artesana
+          </a>
+        </li>
+        <li class="dlp-header__nav-item">
+          <a href="#oficio" class="dlp-header__nav-link" data-dlp-nav-link>
+            <span class="dlp-header__nav-number">02</span>
+            Mi Oficio
+          </a>
+        </li>
+        <li class="dlp-header__nav-item">
+          <a href="#creaciones" class="dlp-header__nav-link" data-dlp-nav-link>
+            <span class="dlp-header__nav-number">03</span>
+            Creaciones
+          </a>
+        </li>
+        <li class="dlp-header__nav-item">
+          <a href="#voces" class="dlp-header__nav-link" data-dlp-nav-link>
+            <span class="dlp-header__nav-number">04</span>
+            Voces
+          </a>
+        </li>
+        <li class="dlp-header__nav-item">
+          <a href="#conversemos" class="dlp-header__nav-link" data-dlp-nav-link>
+            <span class="dlp-header__nav-number">05</span>
+            Conversemos
+          </a>
+        </li>
+      </ul>
+
+      <!-- Información de contacto en el overlay -->
+      <div class="dlp-header__overlay-footer">
+        <p class="dlp-header__overlay-contact">
+          <a href="mailto:aida@delaparra.com" class="dlp-header__overlay-email">
+            aida@delaparra.com
+          </a>
+        </p>
+        <p class="dlp-header__overlay-contact">
+          <a href="tel:+573001234567" class="dlp-header__overlay-phone"> +57 300 123 4567 </a>
+        </p>
+      </div>
+    </div>
+  </nav>
+</header>
