@@ -1,11 +1,443 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const heroImage = '/assets/images/me/aida-1-cepia.png';
 ---
 
 <Layout>
-	<Welcome />
+  <main id="dlp-home">
+    <!-- ==========================================
+    SECCIÓN 1: HERO
+    ========================================== -->
+    <section id="hero" class="dlp-hero">
+      <div class="dlp-hero__background">
+        <img
+          src={heroImage}
+          alt="Aida Susana Parra en su taller de alta costura"
+          class="dlp-hero__image"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="dlp-hero__overlay-gradient"></div>
+      </div>
+
+      <div class="dlp-container dlp-hero__content">
+        <div class="dlp-hero__text">
+          <p class="dlp-hero__pretitle" data-dlp-hero-pretitle>Alta costura artesanal</p>
+          <h1 class="dlp-hero__title-serif" data-dlp-hero-title>
+            De la Parra<br />
+            <span class="dlp-hero__title-serif">Couture</span>
+          </h1>
+          <p class="dlp-hero__subtitle" data-dlp-hero-subtitle>
+            Trabajo en tu prenda hasta <br /> que tú quedes totalmente satisfecha
+          </p>
+          <div class="dlp-hero__cta-wrapper" data-dlp-hero-cta>
+            <a href="#aida" class="dlp-hero__cta">
+              Conocer a Aida
+              <span class="dlp-hero__cta-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dlp-hero__scroll-indicator">
+        <span class="dlp-hero__scroll-text">Desliza</span>
+        <span class="dlp-hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ==========================================
+    SECCIÓN 2: AIDA (La Artesana)
+    ========================================== -->
+    <section id="aida" class="dlp-section-aida">
+      <div class="dlp-container">
+        <div class="dlp-section-aida__grid">
+          <div class="dlp-section-aida__image-wrapper dlp-reveal">
+            <img
+              src="https://placehold.co/800x1000/f5f0eb/2c2a29?text=Aida+Susana+Parra"
+              alt="Retrato de Aida Susana Parra, artesana y modista"
+              class="dlp-section-aida__image"
+              loading="lazy"
+            />
+            <span class="dlp-section-aida__image-caption">Aida Susana Parra · 2024</span>
+          </div>
+
+          <div class="dlp-section-aida__content">
+            <span class="dlp-section-aida__number dlp-reveal dlp-reveal--delay-1">01</span>
+            <h2 class="dlp-section-aida__title dlp-reveal dlp-reveal--delay-1">La Artesana</h2>
+
+            <blockquote class="dlp-section-aida__quote dlp-reveal dlp-reveal--delay-2">
+              "No diseño modas.<br />
+              Diseño para mujeres reales."
+            </blockquote>
+
+            <div class="dlp-section-aida__text dlp-reveal dlp-reveal--delay-3">
+              <p>
+                Soy Aida Susana Parra. Durante más de 20 años, mi único método ha sido escuchar,
+                dibujar y coser. No uso patrones comerciales ni copio tendencias. Cada prenda que
+                sale de mis manos es un diálogo entre la tela y quien la va a vestir.
+              </p>
+              <p>
+                Mi mayor orgullo no es la innovación estética. Es el calce, la calidad, la
+                durabilidad. Prendas que acompañan a mis clientas durante años, no temporadas.
+              </p>
+            </div>
+
+            <div class="dlp-section-aida__stats dlp-reveal dlp-reveal--delay-4">
+              <div class="dlp-stat">
+                <span class="dlp-stat__number">20+</span>
+                <span class="dlp-stat__label">años de oficio</span>
+              </div>
+              <div class="dlp-stat">
+                <span class="dlp-stat__number">100%</span>
+                <span class="dlp-stat__label">hecho a mano</span>
+              </div>
+              <div class="dlp-stat">
+                <span class="dlp-stat__number">1</span>
+                <span class="dlp-stat__label">persona por prenda</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+    SECCIÓN 3: OFICIO (El Proceso)
+    ========================================== -->
+    <section id="oficio" class="dlp-section-oficio">
+      <div class="dlp-container">
+        <div class="dlp-section-oficio__header dlp-reveal">
+          <span class="dlp-section-oficio__number">02</span>
+          <h2 class="dlp-section-oficio__title">Mi Oficio</h2>
+          <p class="dlp-section-oficio__subtitle">
+            Cinco pasos. Un solo compromiso: la perfección.
+          </p>
+        </div>
+
+        <div class="dlp-section-oficio__steps">
+          <!-- Paso 1 -->
+          <div class="dlp-step dlp-reveal dlp-reveal--delay-1">
+            <div class="dlp-step__image-wrapper">
+              <img
+                src="https://placehold.co/600x400/f5f0eb/2c2a29?text=Boceto+y+café"
+                alt="Aida escuchando a una clienta mientras hace bocetos"
+                class="dlp-step__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="dlp-step__content">
+              <span class="dlp-step__number">01</span>
+              <h3 class="dlp-step__title">Escuchar</h3>
+              <p class="dlp-step__description">
+                Todo comienza con una conversación, un café y una idea. Escucho lo que buscas, lo
+                que necesitas, lo que sueñas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="dlp-step dlp-reveal dlp-reveal--delay-2">
+            <div class="dlp-step__image-wrapper">
+              <img
+                src="https://placehold.co/600x400/f5f0eb/2c2a29?text=Patronaje+desde+cero"
+                alt="Patrones de papel creados a mano por Aida"
+                class="dlp-step__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="dlp-step__content">
+              <span class="dlp-step__number">02</span>
+              <h3 class="dlp-step__title">Dibujar</h3>
+              <p class="dlp-step__description">
+                Bocetos en tiempo real. Propuestas que nacen de tu cuerpo, no de un catálogo. Cada
+                línea tiene una razón.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="dlp-step dlp-reveal dlp-reveal--delay-3">
+            <div class="dlp-step__image-wrapper">
+              <img
+                src="https://placehold.co/600x400/f5f0eb/2c2a29?text=Corte+y+telas"
+                alt="Aida cortando tela con precisión artesanal"
+                class="dlp-step__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="dlp-step__content">
+              <span class="dlp-step__number">03</span>
+              <h3 class="dlp-step__title">Cortar</h3>
+              <p class="dlp-step__description">
+                Selecciono las telas con el mismo cuidado con el que elegiría una joya. Cada corte
+                es irreversible y preciso.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="dlp-step dlp-reveal dlp-reveal--delay-4">
+            <div class="dlp-step__image-wrapper">
+              <img
+                src="https://placehold.co/600x400/f5f0eb/2c2a29?text=Confección+a+mano"
+                alt="Detalle de la confección artesanal de Aida"
+                class="dlp-step__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="dlp-step__content">
+              <span class="dlp-step__number">04</span>
+              <h3 class="dlp-step__title">Coser</h3>
+              <p class="dlp-step__description">
+                Puntada por puntada. Sin prisa. La calidad no se negocia, se construye con paciencia
+                y experiencia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 5 -->
+          <div class="dlp-step dlp-reveal dlp-reveal--delay-5">
+            <div class="dlp-step__image-wrapper">
+              <img
+                src="https://placehold.co/600x400/f5f0eb/2c2a29?text=Ajustes+finales"
+                alt="Aida realizando ajustes finales en una prenda"
+                class="dlp-step__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="dlp-step__content">
+              <span class="dlp-step__number">05</span>
+              <h3 class="dlp-step__title">Ajustar</h3>
+              <p class="dlp-step__description">
+                La prenda se prueba, se ajusta, se perfecciona. Hasta que calza como una segunda
+                piel.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+    SECCIÓN 4: CREACIONES (Galería)
+    ========================================== -->
+    <section id="creaciones" class="dlp-section-creaciones">
+      <div class="dlp-container">
+        <div class="dlp-section-creaciones__header dlp-reveal">
+          <span class="dlp-section-creaciones__number">03</span>
+          <h2 class="dlp-section-creaciones__title">Creaciones</h2>
+          <p class="dlp-section-creaciones__subtitle">Prendas que cuentan historias.</p>
+        </div>
+      </div>
+
+      <div class="dlp-section-creaciones__grid">
+        <!-- Item 1 -->
+        <div class="dlp-creacion dlp-reveal dlp-reveal--delay-1">
+          <div class="dlp-creacion__image-wrapper">
+            <img
+              src="https://placehold.co/800x1000/f5f0eb/2c2a29?text=Vestido+de+novia"
+              alt="Vestido de novia confeccionado por Aida"
+              class="dlp-creacion__image"
+              loading="lazy"
+            />
+            <div class="dlp-creacion__overlay">
+              <span class="dlp-creacion__title">Vestido de novia</span>
+              <span class="dlp-creacion__client">Cliente · 2023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="dlp-creacion dlp-reveal dlp-reveal--delay-2">
+          <div class="dlp-creacion__image-wrapper">
+            <img
+              src="https://placehold.co/800x1000/f5f0eb/2c2a29?text=Traje+de+gala"
+              alt="Traje de gala confeccionado por Aida"
+              class="dlp-creacion__image"
+              loading="lazy"
+            />
+            <div class="dlp-creacion__overlay">
+              <span class="dlp-creacion__title">Traje de gala</span>
+              <span class="dlp-creacion__client">Cliente · 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="dlp-creacion dlp-reveal dlp-reveal--delay-3">
+          <div class="dlp-creacion__image-wrapper">
+            <img
+              src="https://placehold.co/800x1000/f5f0eb/2c2a29?text=Vestido+de+boda"
+              alt="Vestido de boda confeccionado por Aida"
+              class="dlp-creacion__image"
+              loading="lazy"
+            />
+            <div class="dlp-creacion__overlay">
+              <span class="dlp-creacion__title">Vestido de boda</span>
+              <span class="dlp-creacion__client">Cliente · 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="dlp-creacion dlp-reveal dlp-reveal--delay-4">
+          <div class="dlp-creacion__image-wrapper">
+            <img
+              src="https://placehold.co/800x1000/f5f0eb/2c2a29?text=Vestido+de+graduación"
+              alt="Vestido de graduación confeccionado por Aida"
+              class="dlp-creacion__image"
+              loading="lazy"
+            />
+            <div class="dlp-creacion__overlay">
+              <span class="dlp-creacion__title">Vestido de graduación</span>
+              <span class="dlp-creacion__client">Cliente · 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="dlp-creacion dlp-reveal dlp-reveal--delay-5">
+          <div class="dlp-creacion__image-wrapper">
+            <img
+              src="https://placehold.co/800x1000/f5f0eb/2c2a29?text=Vestido+de+cóctel"
+              alt="Vestido de cóctel confeccionado por Aida"
+              class="dlp-creacion__image"
+              loading="lazy"
+            />
+            <div class="dlp-creacion__overlay">
+              <span class="dlp-creacion__title">Vestido de cóctel</span>
+              <span class="dlp-creacion__client">Cliente · 2023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="dlp-creacion dlp-reveal dlp-reveal--delay-6">
+          <div class="dlp-creacion__image-wrapper">
+            <img
+              src="https://placehold.co/800x1000/f5f0eb/2c2a29?text=Traje+sastre"
+              alt="Traje sastre confeccionado por Aida"
+              class="dlp-creacion__image"
+              loading="lazy"
+            />
+            <div class="dlp-creacion__overlay">
+              <span class="dlp-creacion__title">Traje sastre</span>
+              <span class="dlp-creacion__client">Cliente · 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dlp-container">
+        <div class="dlp-section-creaciones__footer dlp-reveal">
+          <p class="dlp-section-creaciones__note">
+            Cada prenda es única. Hecha para una mujer,<br />
+            con un propósito, en un momento de su vida.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+    SECCIÓN 5: VOCES (Testimonios)
+    ========================================== -->
+    <section id="voces" class="dlp-section-voces">
+      <div class="dlp-container">
+        <div class="dlp-section-voces__header dlp-reveal">
+          <span class="dlp-section-voces__number">04</span>
+          <h2 class="dlp-section-voces__title">Voces</h2>
+          <p class="dlp-section-voces__subtitle">
+            Lo que dicen quienes ya han vivido la experiencia.
+          </p>
+        </div>
+
+        <div class="dlp-section-voces__grid">
+          <!-- Testimonio 1 -->
+          <blockquote class="dlp-testimonio dlp-reveal dlp-reveal--delay-1">
+            <p class="dlp-testimonio__text">
+              "Aida entendió mi cuerpo mejor que yo misma. El vestido no era una prenda, era mi
+              segunda piel. Nunca me había sentido tan segura en un evento importante."
+            </p>
+            <footer class="dlp-testimonio__footer">
+              <span class="dlp-testimonio__author">Laura M.</span>
+              <span class="dlp-testimonio__event">Boda · 2024</span>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonio 2 -->
+          <blockquote class="dlp-testimonio dlp-reveal dlp-reveal--delay-2">
+            <p class="dlp-testimonio__text">
+              "Llegué sin saber qué quería. Me fui con un vestido que superó todo lo que pude
+              imaginar. Aida no solo cose, interpreta sueños."
+            </p>
+            <footer class="dlp-testimonio__footer">
+              <span class="dlp-testimonio__author">Valentina R.</span>
+              <span class="dlp-testimonio__event">Graduación · 2024</span>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonio 3 -->
+          <blockquote class="dlp-testimonio dlp-reveal dlp-reveal--delay-3">
+            <p class="dlp-testimonio__text">
+              "La calidad es impecable. Pero lo que más valoro es el trato. Aida me hizo sentir que
+              mi vestido era lo más importante del mundo. Y para ella, lo era."
+            </p>
+            <footer class="dlp-testimonio__footer">
+              <span class="dlp-testimonio__author">María F.</span>
+              <span class="dlp-testimonio__event">Aniversario · 2023</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+    SECCIÓN 6: CONVERSEMOS (Contacto)
+    ========================================== -->
+    <section id="conversemos" class="dlp-section-contacto">
+      <div class="dlp-container">
+        <div class="dlp-section-contacto__content">
+          <div class="dlp-section-contacto__text dlp-reveal">
+            <span class="dlp-section-contacto__number">05</span>
+            <h2 class="dlp-section-contacto__title">Conversemos</h2>
+            <p class="dlp-section-contacto__subtitle">
+              ¿Tienes una idea en mente?<br />
+              Hablemos.
+            </p>
+          </div>
+
+          <div class="dlp-section-contacto__info dlp-reveal dlp-reveal--delay-1">
+            <div class="dlp-contacto-item">
+              <span class="dlp-contacto-item__label">Correo</span>
+              <a href="mailto:aida@delaparra.com" class="dlp-contacto-item__value">
+                aida@delaparra.com
+              </a>
+            </div>
+
+            <div class="dlp-contacto-item">
+              <span class="dlp-contacto-item__label">Teléfono</span>
+              <a href="tel:+573001234567" class="dlp-contacto-item__value"> +57 300 123 4567 </a>
+            </div>
+
+            <div class="dlp-contacto-item">
+              <span class="dlp-contacto-item__label">Ubicación</span>
+              <span class="dlp-contacto-item__value">Bogotá, Colombia</span>
+            </div>
+          </div>
+
+          <div class="dlp-section-contacto__cta dlp-reveal dlp-reveal--delay-2">
+            <a
+              href="mailto:aida@delaparra.com?subject=Quiero%20conversar%20sobre%20un%20vestido"
+              class="dlp-section-contacto__button"
+            >
+              Conversemos
+              <span class="dlp-section-contacto__button-arrow">→</span>
+            </a>
+            <p class="dlp-section-contacto__note">Respondo personalmente en menos de 24 horas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
