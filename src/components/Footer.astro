@@ -1,0 +1,109 @@
+---
+// Footer.astro
+// Componente de pie de página para De la Parra Couture
+// Cierre elegante y cálido, como el final de una conversación
+const logoMobile = '/header-opt-1-mobile.png';
+const logoDesktop = '/header-opt-2.png';
+---
+
+<footer class="dlp-footer">
+  <div class="dlp-container">
+    <div class="dlp-footer__grid">
+      <!-- Columna 1: Marca -->
+      <div class="dlp-footer__brand">
+        <a href="/" class="dlp-footer__logo" aria-label="De la Parra Couture - Inicio">
+          <picture>
+            <source media="(min-width: 768px)" srcset={logoDesktop} />
+            <img
+              src={logoMobile}
+              alt="De la Parra Couture"
+              class="dlp-header__logo-image"
+              loading="lazy"
+              width="600"
+              height="180"
+            />
+          </picture>
+        </a>
+        <p class="dlp-footer__tagline">Alta costura hecha para una sola persona.</p>
+      </div>
+
+      <!-- Columna 2: Navegación -->
+      <nav class="dlp-footer__nav" aria-label="Navegación del pie de página">
+        <ul class="dlp-footer__nav-list">
+          <li class="dlp-footer__nav-item">
+            <a href="#aida" class="dlp-footer__nav-link">La Artesana</a>
+          </li>
+          <li class="dlp-footer__nav-item">
+            <a href="#oficio" class="dlp-footer__nav-link">Mi Oficio</a>
+          </li>
+          <li class="dlp-footer__nav-item">
+            <a href="#creaciones" class="dlp-footer__nav-link">Creaciones</a>
+          </li>
+          <li class="dlp-footer__nav-item">
+            <a href="#voces" class="dlp-footer__nav-link">Voces</a>
+          </li>
+          <li class="dlp-footer__nav-item">
+            <a href="#conversemos" class="dlp-footer__nav-link">Conversemos</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Columna 3: Contacto -->
+      <div class="dlp-footer__contact">
+        <h3 class="dlp-footer__contact-title">Conversemos</h3>
+        <ul class="dlp-footer__contact-list">
+          <li class="dlp-footer__contact-item">
+            <span class="dlp-footer__contact-label">Correo</span>
+            <a href="mailto:aida@delaparra.com" class="dlp-footer__contact-value">
+              aida@delaparra.com
+            </a>
+          </li>
+          <li class="dlp-footer__contact-item">
+            <span class="dlp-footer__contact-label">Teléfono</span>
+            <a href="tel:+573001234567" class="dlp-footer__contact-value"> +57 300 123 4567 </a>
+          </li>
+          <li class="dlp-footer__contact-item">
+            <span class="dlp-footer__contact-label">Ubicación</span>
+            <span class="dlp-footer__contact-value">Bogotá, Colombia</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Redes Sociales -->
+      <div class="dlp-footer__social">
+        <h3 class="dlp-footer__social-title">Sígueme</h3>
+        <ul class="dlp-footer__social-list">
+          <li class="dlp-footer__social-item">
+            <a
+              href="#"
+              class="dlp-footer__social-link"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="dlp-footer__social-icon">📷</span>
+              <span class="dlp-footer__social-label">Instagram</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Línea divisoria y copyright -->
+    <div class="dlp-footer__bottom">
+      <div class="dlp-footer__divider"></div>
+      <div class="dlp-footer__bottom-content">
+        <p class="dlp-footer__copyright">
+          &copy; <span id="dlp-current-year"></span> De la Parra Couture.
+          <span class="dlp-footer__copyright-separator">·</span>
+          <span class="dlp-footer__copyright-text">Hecho a mano con paciencia y oficio.</span>
+        </p>
+        <p class="dlp-footer__credit">
+          <span class="dlp-footer__credit-text">Diseño y desarrollo</span>
+          <span class="dlp-footer__credit-separator">·</span>
+          <a href="#" class="dlp-footer__credit-link">Estudio</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
