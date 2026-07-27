@@ -1,0 +1,365 @@
+// =============================================================================
+// De la Parra Couture — Header
+// =============================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ── Overlay (x-cloak equivalent) ─────────────────────────────────────────────
+[x-cloak] {
+  display: none !important;
+}
+
+// ── Header ───────────────────────────────────────────────────────────────────
+.dlp-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $dlp-z-header;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  will-change: transform;
+
+  &:has(nav.dlp-header__overlay--open) {
+    .dlp-header__menu-line {
+      background-color: $dlp-color-primary;
+    }
+
+    .dlp-header__menu-label {
+      color: $dlp-color-primary;
+    }
+
+    .dlp-header__logo-image {
+      filter: brightness(1) invert(0);
+    }
+  }
+
+  @include respond-to('md') {
+    padding: 2rem 4rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 1.25rem;
+  }
+}
+
+// ── Header Scrolled State (Fallback para GSAP) ───────────────────────────────
+// Este estilo actúa como fallback cuando GSAP no está disponible
+// o para usuarios con preferencia de movimiento reducido
+@media (prefers-reduced-motion: no-preference) {
+  .dlp-header--scrolled {
+    padding: 0.75rem 2rem;
+
+    @include respond-to('md') {
+      padding: 1rem 4rem;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .dlp-header--scrolled .dlp-header__gradient {
+    opacity: 1;
+  }
+}
+
+// ── Header Gradient Layer ─────────────────────────────────────────────────────
+// Capa gradiente que se anima con GSAP (opacidad) en vez de intentar interpolar
+// el valor del gradient, lo cual GSAP no puede hacer suavemente.
+.dlp-header__gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(0deg,
+      rgba(44, 42, 41, 0.0) 0%,
+      rgba(44, 42, 41, 0.1) 20%,
+      rgba(44, 42, 41, 0.3) 40%,
+      rgba(44, 42, 41, 0.5) 60%,
+      rgba(44, 42, 41, 0.8) 100%);
+  opacity: 0;
+  pointer-events: none;
+
+  @media (max-width: 768px) {
+    background: linear-gradient(0deg,
+        rgba(44, 42, 41, 0.0) 0%,
+        rgba(44, 42, 41, 0.2) 20%,
+        rgba(44, 42, 41, 0.4) 40%,
+        rgba(44, 42, 41, 0.6) 60%,
+        rgba(44, 42, 41, 0.9) 100%);
+  }
+}
+
+.dlp-header__inner {
+  position: relative;
+  z-index: $dlp-z-header + 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--dlp-max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+// ── Logo ─────────────────────────────────────────────────────────────────────
+.dlp-header__logo {
+  display: block;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity $dlp-transition-medium;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.dlp-header__logo-image {
+  display: block;
+  height: auto;
+  max-height: 100px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  margin-top: 1rem;
+
+  @media (max-width: 480px) {
+    margin-top: 0rem;
+  }
+}
+
+// ── Menu Toggle ──────────────────────────────────────────────────────────────
+.dlp-header__menu-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: $dlp-color-secondary;
+  @include font-body;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color $dlp-transition-medium;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.65rem;
+  }
+}
+
+.dlp-header__menu-label {
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+
+// ── Icono hamburguesa ────────────────────────────────────────────────────────
+.dlp-header__menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 24px;
+  height: 18px;
+  justify-content: center;
+}
+
+.dlp-header__menu-line {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: $dlp-color-secondary;
+  transition: all $dlp-transition-medium;
+  transform-origin: center;
+}
+
+.dlp-header__menu-line--active:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 0px);
+}
+
+.dlp-header__menu-line--active:nth-child(2) {
+  transform: rotate(-45deg) translate(4px, 0px);
+}
+
+// ── Overlay ──────────────────────────────────────────────────────────────────
+.dlp-header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $dlp-color-bg;
+  z-index: $dlp-z-header - 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity $dlp-transition-slow;
+
+  &--open {
+    pointer-events: all;
+    opacity: 1;
+  }
+}
+
+// Cuando el overlay está abierto, el logo y menú cambian de color
+.dlp-header__overlay--open~.dlp-header__inner .dlp-header__logo-image {
+  filter: none;
+}
+
+.dlp-header__overlay--open~.dlp-header__inner .dlp-header__menu-toggle {
+  color: $dlp-color-text;
+}
+
+.dlp-header__overlay-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  padding: 6rem 2rem 4rem;
+
+  @include respond-to('md') {
+    padding: 8rem 4rem 4rem;
+  }
+}
+
+// ── Navegación ───────────────────────────────────────────────────────────────
+.dlp-header__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  height: 100%;
+
+  @include respond-to('md') {
+    gap: 2rem;
+  }
+}
+
+.dlp-header__nav-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+.dlp-header__overlay--open .dlp-header__nav-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Stagger delay
+.dlp-header__nav-item:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.dlp-header__nav-item:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.dlp-header__nav-item:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+.dlp-header__nav-item:nth-child(4) {
+  transition-delay: 0.2s;
+}
+
+.dlp-header__nav-item:nth-child(5) {
+  transition-delay: 0.25s;
+}
+
+.dlp-header__nav-link {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  @include font-heading;
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 400;
+  color: $dlp-color-text;
+  text-decoration: none;
+  transition: all $dlp-transition-medium;
+  line-height: 1.2;
+  position: relative;
+
+  &:hover {
+    color: $dlp-color-accent;
+    transform: translateX(1rem);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $dlp-color-accent;
+    outline-offset: 4px;
+  }
+}
+
+.dlp-header__nav-number {
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: $dlp-color-accent;
+  opacity: 0.6;
+  min-width: 2.5rem;
+
+  @include respond-to('md') {
+    font-size: 0.8rem;
+    min-width: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    min-width: 2rem;
+    font-size: 0.6rem;
+  }
+}
+
+// ── Footer del overlay ───────────────────────────────────────────────────────
+.dlp-header__overlay-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $dlp-color-accent;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+}
+
+.dlp-header__overlay--open .dlp-header__overlay-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dlp-header__overlay-contact {
+  @include font-body;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+
+  @include respond-to('md') {
+    font-size: 1rem;
+  }
+}
+
+.dlp-header__overlay-email,
+.dlp-header__overlay-phone {
+  color: $dlp-color-text;
+  text-decoration: none;
+  transition: color $dlp-transition-medium;
+  opacity: 0.6;
+
+  &:hover {
+    color: $dlp-color-accent;
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $dlp-color-accent;
+    outline-offset: 4px;
+  }
+}

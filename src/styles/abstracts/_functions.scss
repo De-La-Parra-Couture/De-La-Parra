@@ -1,0 +1,9 @@
+// =============================================================================
+// De la Parra Couture — Functions
+// =============================================================================
+
+@use 'variables' as *;
+
+@function dlp-spacing($multiplier) {
+  @return $dlp-spacing-unit * $multiplier;
+}

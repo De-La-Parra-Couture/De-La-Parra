@@ -1,0 +1,21 @@
+// =============================================================================
+// De la Parra Couture — Placeholders
+// =============================================================================
+
+@use 'variables' as *;
+
+%dlp-font-heading {
+  font-family: $dlp-font-heading;
+}
+
+%dlp-font-body {
+  font-family: $dlp-font-body;
+}
+
+%dlp-transition-base {
+  transition: $dlp-transition-base;
+}
+
+%dlp-transition-slow {
+  transition: $dlp-transition-slow;
+}

@@ -1,0 +1,59 @@
+// =============================================================================
+// De la Parra Couture — Design Tokens
+// =============================================================================
+
+// Colors
+:root {
+  --dlp-color-primary: #1a1817;
+  --dlp-color-secondary: #ffffff;
+  --dlp-color-bg: #fcfaf5;
+  --dlp-color-text: #2c2a29;
+  --dlp-color-accent: #e5d9c5;
+  --dlp-color-border: #e8e1d8;
+}
+
+$dlp-color-primary: var(--dlp-color-primary);
+$dlp-color-secondary: var(--dlp-color-secondary);
+$dlp-color-bg: var(--dlp-color-bg);
+$dlp-color-text: var(--dlp-color-text);
+$dlp-color-accent: var(--dlp-color-accent);
+$dlp-color-border: var(--dlp-color-border);
+
+// Typography
+:root {
+  --dlp-font-heading: 'Playfair Display', Georgia, serif;
+  --dlp-font-body: 'Raleway', Helvetica, Arial, sans-serif;
+}
+
+$dlp-font-heading: var(--dlp-font-heading);
+$dlp-font-body: var(--dlp-font-body);
+
+// Breakpoints
+$dlp-breakpoint-sm: 640px;
+$dlp-breakpoint-md: 768px;
+$dlp-breakpoint-lg: 1024px;
+$dlp-breakpoint-xl: 1280px;
+
+// Spacing
+$dlp-spacing-unit: 8px;
+
+// Transitions
+:root {
+  --dlp-transition-base: 0.3s ease;
+  --dlp-transition-medium: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --dlp-transition-slow: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+$dlp-transition-base: var(--dlp-transition-base);
+$dlp-transition-medium: var(--dlp-transition-medium);
+$dlp-transition-slow: var(--dlp-transition-slow);
+
+// Layout
+:root {
+  --dlp-max-width: 1440px;
+}
+
+// Z-index
+$dlp-z-header: 100;
+$dlp-z-dropdown: 200;
+$dlp-z-modal: 300;

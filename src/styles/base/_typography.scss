@@ -1,0 +1,35 @@
+// =============================================================================
+// De la Parra Couture — Typography
+// =============================================================================
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  @include font-body;
+  color: $dlp-color-text;
+  background-color: $dlp-color-bg;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include font-heading;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 6rem); }
+h2 { font-size: clamp(2.5rem, 4vw, 4rem); }
+h3 { font-size: clamp(1.8rem, 3vw, 3rem); }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  @include font-body;
+  font-weight: 300;
+  line-height: 1.8;
+}

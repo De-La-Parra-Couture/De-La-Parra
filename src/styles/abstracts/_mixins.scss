@@ -1,0 +1,33 @@
+// =============================================================================
+// De la Parra Couture — Mixins
+// =============================================================================
+
+@use 'variables' as *;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: $dlp-breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: $dlp-breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: $dlp-breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: $dlp-breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin font-heading {
+  font-family: $dlp-font-heading;
+}
+
+@mixin font-body {
+  font-family: $dlp-font-body;
+}

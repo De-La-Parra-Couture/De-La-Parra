@@ -1,0 +1,20 @@
+// =============================================================================
+// De la Parra Couture — Cards
+// =============================================================================
+
+@use '../abstracts/mixins' as *;
+
+.dlp-card {
+  &__image {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__title {
+    @include font-heading;
+  }
+
+  &__text {
+    @include font-body;
+  }
+}

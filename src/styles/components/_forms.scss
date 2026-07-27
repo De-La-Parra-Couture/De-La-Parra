@@ -1,0 +1,32 @@
+// =============================================================================
+// De la Parra Couture — Forms
+// =============================================================================
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+
+.dlp-form {
+  &__input {
+    @include font-body;
+    width: 100%;
+    padding: dlp-spacing(1.5) dlp-spacing(2);
+    border: 1px solid $dlp-color-primary;
+    background-color: transparent;
+    color: $dlp-color-text;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+
+    &--error {
+      border-color: #c00;
+    }
+  }
+
+  &__label {
+    @include font-body;
+    display: block;
+    margin-bottom: dlp-spacing(0.5);
+  }
+}

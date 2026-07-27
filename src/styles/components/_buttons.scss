@@ -1,0 +1,38 @@
+// =============================================================================
+// De la Parra Couture — Buttons
+// =============================================================================
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.dlp-btn {
+  @include font-body;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: dlp-spacing(1.5) dlp-spacing(3);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: $dlp-transition-base;
+
+  &--primary {
+    background-color: $dlp-color-primary;
+    color: $dlp-color-secondary;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    border: 1px solid $dlp-color-primary;
+    color: $dlp-color-primary;
+
+    &:hover {
+      background-color: $dlp-color-primary;
+      color: $dlp-color-secondary;
+    }
+  }
+}

@@ -1,0 +1,575 @@
+// =============================================================================
+// De la Parra Couture — Home Page
+// =============================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// =============================================================================
+// SECCIÓN 2: AIDA (La Artesana)
+// =============================================================================
+
+.dlp-section-aida {
+  padding: 6rem 0 4rem;
+  background: $dlp-color-bg;
+}
+
+.dlp-section-aida__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: start;
+  }
+}
+
+.dlp-section-aida__image-wrapper {
+  position: relative;
+}
+
+.dlp-section-aida__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.dlp-section-aida__image-caption {
+  display: block;
+  margin-top: 0.75rem;
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  opacity: 0.4;
+}
+
+.dlp-section-aida__number {
+  display: block;
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: $dlp-color-accent;
+  margin-bottom: 1rem;
+}
+
+.dlp-section-aida__title {
+  @include font-heading;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.dlp-section-aida__quote {
+  @include font-heading;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.3;
+  color: $dlp-color-accent;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid $dlp-color-accent;
+}
+
+.dlp-section-aida__text p {
+  @include font-body;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+
+  @include respond-to('md') {
+    font-size: 1.125rem;
+  }
+}
+
+// ── Stats ────────────────────────────────────────────────────────────────────
+.dlp-section-aida__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $dlp-color-accent;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.dlp-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.dlp-stat__number {
+  @include font-heading;
+  font-size: 2rem;
+  font-weight: 400;
+  color: $dlp-color-text;
+}
+
+.dlp-stat__label {
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 0.25rem;
+}
+
+// =============================================================================
+// SECCIÓN 3: OFICIO (El Proceso)
+// =============================================================================
+
+.dlp-section-oficio {
+  padding: 6rem 0 4rem;
+  background: $dlp-color-secondary;
+}
+
+.dlp-section-oficio__header {
+  margin-bottom: 4rem;
+}
+
+.dlp-section-oficio__number {
+  display: block;
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: $dlp-color-accent;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-section-oficio__title {
+  @include font-heading;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-section-oficio__subtitle {
+  @include font-body;
+  font-size: 1.125rem;
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.dlp-section-oficio__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+
+  @include respond-to('lg') {
+    gap: 8rem;
+  }
+}
+
+// ── Step ─────────────────────────────────────────────────────────────────────
+.dlp-step {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+
+    &:nth-child(even) .dlp-step__image-wrapper {
+      order: 2;
+    }
+
+    &:nth-child(even) .dlp-step__content {
+      order: 1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+  }
+}
+
+.dlp-step__image-wrapper {
+  overflow: hidden;
+}
+
+.dlp-step__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  transition: transform $dlp-transition-slow;
+}
+
+.dlp-step:hover .dlp-step__image {
+  transform: scale(1.02);
+}
+
+.dlp-step__number {
+  display: block;
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: $dlp-color-accent;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-step__title {
+  @include font-heading;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.dlp-step__description {
+  @include font-body;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  opacity: 0.7;
+}
+
+// =============================================================================
+// SECCIÓN 4: CREACIONES (Galería)
+// =============================================================================
+
+.dlp-section-creaciones {
+  padding: 6rem 0 4rem;
+  background: $dlp-color-bg;
+}
+
+.dlp-section-creaciones__header {
+  margin-bottom: 3rem;
+}
+
+.dlp-section-creaciones__number {
+  display: block;
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: $dlp-color-accent;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-section-creaciones__title {
+  @include font-heading;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-section-creaciones__subtitle {
+  @include font-body;
+  font-size: 1.125rem;
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.dlp-section-creaciones__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// ── Creación item ────────────────────────────────────────────────────────────
+.dlp-creacion {
+  overflow: hidden;
+  position: relative;
+}
+
+.dlp-creacion__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.dlp-creacion__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $dlp-transition-slow;
+}
+
+.dlp-creacion:hover .dlp-creacion__image {
+  transform: scale(1.05);
+}
+
+.dlp-creacion__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(44, 42, 41, 0.7) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity $dlp-transition-medium;
+
+  @media (max-width: 768px) {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(44, 42, 41, 0.5) 0%, transparent 50%);
+  }
+}
+
+.dlp-creacion:hover .dlp-creacion__overlay {
+  opacity: 1;
+}
+
+.dlp-creacion__title {
+  @include font-heading;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: $dlp-color-secondary;
+}
+
+.dlp-creacion__client {
+  @include font-body;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+.dlp-section-creaciones__footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.dlp-section-creaciones__note {
+  @include font-heading;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
+  opacity: 0.6;
+  line-height: 1.6;
+}
+
+// =============================================================================
+// SECCIÓN 5: VOCES (Testimonios)
+// =============================================================================
+
+.dlp-section-voces {
+  padding: 6rem 0 4rem;
+  background: $dlp-color-secondary;
+}
+
+.dlp-section-voces__header {
+  margin-bottom: 4rem;
+}
+
+.dlp-section-voces__number {
+  display: block;
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: $dlp-color-accent;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-section-voces__title {
+  @include font-heading;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-section-voces__subtitle {
+  @include font-body;
+  font-size: 1.125rem;
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.dlp-section-voces__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+// ── Testimonio ───────────────────────────────────────────────────────────────
+.dlp-testimonio {
+  padding: 2rem;
+  background: $dlp-color-bg;
+  border-radius: 4px;
+  margin: 0;
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
+}
+
+.dlp-testimonio__text {
+  @include font-heading;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.dlp-testimonio__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.dlp-testimonio__author {
+  @include font-body;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.dlp-testimonio__event {
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  opacity: 0.4;
+  letter-spacing: 0.05em;
+}
+
+// =============================================================================
+// SECCIÓN 6: CONTACTO
+// =============================================================================
+
+.dlp-section-contacto {
+  padding: 6rem 0 4rem;
+  background: $dlp-color-bg;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.dlp-section-contacto__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+}
+
+.dlp-section-contacto__number {
+  display: block;
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: $dlp-color-accent;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-section-contacto__title {
+  @include font-heading;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.dlp-section-contacto__subtitle {
+  @include font-heading;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-style: italic;
+  font-weight: 300;
+  opacity: 0.6;
+  line-height: 1.4;
+}
+
+.dlp-section-contacto__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+// ── Contacto item ────────────────────────────────────────────────────────────
+.dlp-contacto-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dlp-contacto-item__label {
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+.dlp-contacto-item__value {
+  @include font-heading;
+  font-size: 1.2rem;
+  font-weight: 400;
+  transition: color $dlp-transition-medium;
+
+  &:hover {
+    color: $dlp-color-accent;
+  }
+}
+
+// ── CTA ──────────────────────────────────────────────────────────────────────
+.dlp-section-contacto__cta {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid $dlp-color-accent;
+}
+
+.dlp-section-contacto__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  @include font-heading;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid $dlp-color-text;
+  transition: all $dlp-transition-medium;
+
+  &:hover {
+    border-bottom-color: $dlp-color-accent;
+    transform: translateX(4px);
+  }
+}
+
+.dlp-section-contacto__button-arrow {
+  display: inline-block;
+  transition: transform $dlp-transition-medium;
+}
+
+.dlp-section-contacto__button:hover .dlp-section-contacto__button-arrow {
+  transform: translateX(8px);
+}
+
+.dlp-section-contacto__note {
+  @include font-body;
+  font-size: 0.85rem;
+  font-weight: 300;
+  opacity: 0.4;
+  margin-top: 1rem;
+}

@@ -1,0 +1,187 @@
+// =============================================================================
+// De la Parra Couture — Hero
+// =============================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.dlp-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: $dlp-color-secondary;
+}
+
+.dlp-hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.dlp-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.dlp-hero__overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(44, 42, 41, 0.1) 0%,
+    rgba(44, 42, 41, 0.5) 60%,
+    rgba(44, 42, 41, 0.8) 100%
+  );
+}
+
+.dlp-hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.dlp-hero__text {
+  max-width: 720px;
+}
+
+.dlp-hero__pretitle {
+  @include font-body;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.dlp-hero__pretitle--visible {
+  opacity: 0.6;
+  transform: translateY(0);
+}
+
+.dlp-hero__title {
+  @include font-body;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.dlp-hero__title--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dlp-hero__title-serif {
+  @include font-heading;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.dlp-hero__subtitle {
+  @include font-heading;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.dlp-hero__subtitle--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dlp-hero__cta-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.dlp-hero__cta-wrapper--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dlp-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  @include font-body;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all $dlp-transition-medium;
+
+  &:hover {
+    border-bottom-color: $dlp-color-secondary;
+    transform: translateX(4px);
+  }
+}
+
+.dlp-hero__cta-arrow {
+  display: inline-block;
+  transition: transform $dlp-transition-medium;
+}
+
+.dlp-hero__cta:hover .dlp-hero__cta-arrow {
+  transform: translateX(6px);
+}
+
+// ── Scroll indicator ─────────────────────────────────────────────────────────
+.dlp-hero__scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.4;
+  animation: dlp-float-down 2.5s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.dlp-hero__scroll-text {
+  @include font-body;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.dlp-hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, $dlp-color-secondary, transparent);
+}
+
+@keyframes dlp-float-down {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
+}
