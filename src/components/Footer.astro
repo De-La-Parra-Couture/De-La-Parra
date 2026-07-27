@@ -2,8 +2,9 @@
 // Footer.astro
 // Componente de pie de página para De la Parra Couture
 // Cierre elegante y cálido, como el final de una conversación
-const logoMobile = '/header-opt-1-mobile.png';
-const logoDesktop = '/header-opt-2.png';
+const base = import.meta.env.BASE_URL;
+const logoMobile = `${base}/header-opt-1-mobile.png`;
+const logoDesktop = `${base}/header-opt-2.png`;
 ---
 
 <footer class="dlp-footer">
@@ -11,7 +12,7 @@ const logoDesktop = '/header-opt-2.png';
     <div class="dlp-footer__grid">
       <!-- Columna 1: Marca -->
       <div class="dlp-footer__brand">
-        <a href="/" class="dlp-footer__logo" aria-label="De la Parra Couture - Inicio">
+        <a href={base} class="dlp-footer__logo" aria-label="De la Parra Couture - Inicio">
           <picture>
             <source media="(min-width: 768px)" srcset={logoDesktop} />
             <img
