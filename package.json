@@ -1,5 +1,5 @@
 {
-  "name": "force",
+  "name": "de-la-parra-couture",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -9,9 +9,26 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint 'src/**/*.{ts,astro}'",
+    "format": "prettier --write 'src/**/*.{ts,astro,scss,css}'",
+    "typecheck": "astro check"
   },
   "dependencies": {
-    "astro": "^7.1.4"
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^7.1.4",
+    "gsap": "^3.15.0",
+    "sass": "^1.89.1",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@typescript-eslint/eslint-plugin": "^8.65.0",
+    "@typescript-eslint/parser": "^8.65.0",
+    "eslint": "^10.8.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^6.0.3"
   }
 }
