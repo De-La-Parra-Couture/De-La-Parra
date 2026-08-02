@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { formatDate, getBlogUrl, getExcerpt } from '../../lib/blog';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime(),
+);
+---
+
+<Layout
+  title="El Diario — De la Parra Couture"
+  description="Historias, procesos y reflexiones del atelier de alta costura De la Parra Couture."
+>
+  <main id="dlp-blog">
+    <!-- ==========================================
+    BANNER EDITORIAL
+    ========================================== -->
+    <section class="dlp-blog-hero">
+      <div class="dlp-container dlp-blog-hero__content">
+        <p class="dlp-blog-hero__pretitle dlp-reveal">Palabras del taller</p>
+        <h1 class="dlp-blog-hero__title dlp-reveal dlp-reveal--delay-1">El Diario</h1>
+        <p class="dlp-blog-hero__subtitle dlp-reveal dlp-reveal--delay-2">
+          Historias, procesos y reflexiones del atelier.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+    LISTADO DE POSTS
+    ========================================== -->
+    <section class="dlp-blog-list">
+      <div class="dlp-container">
+        {
+          posts.length === 0 ? (
+            <div class="dlp-blog-empty dlp-reveal">
+              <p class="dlp-blog-empty__text">
+                Pronto compartiremos nuevas historias desde el taller.
+              </p>
+            </div>
+          ) : (
+            <ul class="dlp-blog-list__items">
+              {posts.map((post, index) => {
+                const cover = post.data.coverImage;
+                const delay = (index % 3) + 1;
+                const postUrl = getBlogUrl(post.id);
+                return (
+                  <li class={`dlp-blog-list__item dlp-reveal dlp-reveal--delay-${delay}`}>
+                    <article
+                      class={`dlp-blog-entry${index % 2 === 1 ? ' dlp-blog-entry--reverse' : ''}`}
+                    >
+                      <div class="dlp-blog-entry__media">
+                        {cover ? (
+                          <a
+                            href={postUrl}
+                            class="dlp-blog-entry__media-link"
+                            aria-label={`Leer «${post.data.title}»`}
+                          >
+                            <Image
+                              src={cover}
+                              alt={`Portada de «${post.data.title}»`}
+                              class="dlp-blog-entry__image"
+                              width={1200}
+                              loading="lazy"
+                            />
+                          </a>
+                        ) : (
+                          <div class="dlp-blog-entry__placeholder">
+                            <span>De la Parra Couture</span>
+                          </div>
+                        )}
+                      </div>
+                      <div class="dlp-blog-entry__content">
+                        <p class="dlp-blog-entry__date">{formatDate(post.data.publishedDate)}</p>
+                        <h2 class="dlp-blog-entry__title">{post.data.title}</h2>
+                        <p class="dlp-blog-entry__excerpt">{getExcerpt(post.body ?? '')}</p>
+                        <a href={postUrl} class="dlp-blog-entry__link">
+                          Leer la historia
+                          <span class="dlp-blog-entry__link-arrow">→</span>
+                        </a>
+                      </div>
+                    </article>
+                  </li>
+                );
+              })}
+            </ul>
+          )
+        }
+      </div>
+    </section>
+  </main>
+</Layout>

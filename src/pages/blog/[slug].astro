@@ -1,0 +1,85 @@
+---
+// Blog — Vista de entrada
+// Cada post publicado se renderiza de forma estática en /blog/<slug>/
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import { formatDate, getBlogListUrl, getBlogUrl, getExcerpt } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const { Content } = await render(post);
+
+const cover = post.data.coverImage;
+const description = getExcerpt(post.body ?? '', 160);
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime(),
+);
+const postIndex = allPosts.findIndex((p) => p.id === post.id);
+const newerPost = postIndex > 0 ? allPosts[postIndex - 1] : undefined;
+const olderPost =
+  postIndex >= 0 && postIndex < allPosts.length - 1 ? allPosts[postIndex + 1] : undefined;
+---
+
+<Layout title={`${post.data.title} — El Diario`} description={description}>
+  <main id="dlp-blog-post">
+    <div class="dlp-container">
+      <div class="dlp-post__inner">
+        <a href={getBlogListUrl()} class="dlp-post__back dlp-reveal">
+          ← Volver al Diario
+        </a>
+
+        <header class="dlp-post__header">
+          <p class="dlp-post__pretitle dlp-reveal">El Diario · Palabras del taller</p>
+          <p class="dlp-post__date dlp-reveal">{formatDate(post.data.publishedDate)}</p>
+          <h1 class="dlp-post__title dlp-reveal">{post.data.title}</h1>
+        </header>
+
+        {cover && (
+          <figure class="dlp-post__figure dlp-reveal">
+            <Image
+              src={cover}
+              alt={`Portada de «${post.data.title}»`}
+              class="dlp-post__cover"
+              width={1600}
+              loading="eager"
+            />
+          </figure>
+        )}
+
+        <article class="dlp-prose dlp-reveal">
+          <Content />
+        </article>
+
+        <nav class="dlp-post__pagination" aria-label="Navegación entre entradas">
+          {olderPost ? (
+            <a href={getBlogUrl(olderPost.id)} class="dlp-post__page dlp-post__page--prev">
+              <span class="dlp-post__page-label">← Anterior</span>
+              <span class="dlp-post__page-title">{olderPost.data.title}</span>
+            </a>
+          ) : (
+            <span class="dlp-post__page dlp-post__page--placeholder" aria-hidden="true"></span>
+          )}
+
+          {newerPost ? (
+            <a href={getBlogUrl(newerPost.id)} class="dlp-post__page dlp-post__page--next">
+              <span class="dlp-post__page-label">Siguiente →</span>
+              <span class="dlp-post__page-title">{newerPost.data.title}</span>
+            </a>
+          ) : (
+            <span class="dlp-post__page dlp-post__page--placeholder" aria-hidden="true"></span>
+          )}
+        </nav>
+      </div>
+    </div>
+  </main>
+</Layout>
