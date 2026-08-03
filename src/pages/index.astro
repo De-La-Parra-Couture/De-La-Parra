@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 
 const base = import.meta.env.BASE_URL;
-const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
+const withBase = (path: string) => `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
+const heroImage = withBase('assets/images/me/aida-1-cepia.png');
 ---
 
 <Layout>
@@ -55,7 +56,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
         <div class="dlp-section-aida__grid">
           <div class="dlp-section-aida__image-wrapper dlp-reveal">
             <img
-              src={`${base}/assets/images/me/aida-susana-parra-parra.webp`}
+              src={withBase('assets/images/me/aida-susana-parra-parra.webp')}
               alt="Retrato de Aida Susana Parra, artesana y modista"
               class="dlp-section-aida__image"
               loading="lazy"
@@ -121,7 +122,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
           <div class="dlp-step dlp-reveal dlp-reveal--delay-1">
             <div class="dlp-step__image-wrapper">
               <img
-                src={`${base}/assets/images/my-job/step-1.jpg`}
+                src={withBase('assets/images/my-job/step-1.jpg')}
                 alt="Aida escuchando a una clienta mientras hace bocetos"
                 class="dlp-step__image"
                 loading="lazy"
@@ -141,7 +142,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
           <div class="dlp-step dlp-reveal dlp-reveal--delay-2">
             <div class="dlp-step__image-wrapper">
               <img
-                src={`${base}/assets/images/my-job/step-2.jpg`}
+                src={withBase('assets/images/my-job/step-2.jpg')}
                 alt="Patrones de papel creados a mano por Aida"
                 class="dlp-step__image"
                 loading="lazy"
@@ -161,7 +162,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
           <div class="dlp-step dlp-reveal dlp-reveal--delay-3">
             <div class="dlp-step__image-wrapper">
               <img
-                src={`${base}/assets/images/my-job/step-3.jpg`}
+                src={withBase('assets/images/my-job/step-3.jpg')}
                 alt="Aida cortando tela con precisión artesanal"
                 class="dlp-step__image"
                 loading="lazy"
@@ -181,7 +182,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
           <div class="dlp-step dlp-reveal dlp-reveal--delay-4">
             <div class="dlp-step__image-wrapper">
               <img
-                src={`${base}/assets/images/my-job/step-4.jpg`}
+                src={withBase('assets/images/my-job/step-4.jpg')}
                 alt="Detalle de la confección artesanal de Aida"
                 class="dlp-step__image"
                 loading="lazy"
@@ -201,7 +202,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
           <div class="dlp-step dlp-reveal dlp-reveal--delay-5">
             <div class="dlp-step__image-wrapper">
               <img
-                src={`${base}/assets/images/my-job/step-5.jpg`}
+                src={withBase('assets/images/my-job/step-5.jpg')}
                 alt="Aida realizando ajustes finales en una prenda"
                 class="dlp-step__image"
                 loading="lazy"
@@ -237,7 +238,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
         <div class="dlp-creacion dlp-reveal dlp-reveal--delay-1">
           <div class="dlp-creacion__image-wrapper">
             <img
-              src={`${base}/assets/images/creations/dress-rosewood-off-shoulder.png`}
+              src={withBase('assets/images/creations/dress-rosewood-off-shoulder.png')}
               alt="Vestido off-shoulder confeccionado por Aida"
               class="dlp-creacion__image"
               loading="lazy"
@@ -253,7 +254,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
         <div class="dlp-creacion dlp-reveal dlp-reveal--delay-2">
           <div class="dlp-creacion__image-wrapper">
             <img
-              src={`${base}/assets/images/creations/dress-floral-mullet.png`}
+              src={withBase('assets/images/creations/dress-floral-mullet.png')}
               alt="Vestido floral confeccionado por Aida"
               class="dlp-creacion__image"
               loading="lazy"
@@ -269,7 +270,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
         <div class="dlp-creacion dlp-reveal dlp-reveal--delay-3">
           <div class="dlp-creacion__image-wrapper">
             <img
-              src={`${base}/assets/images/creations/dress-red-palm-sleeveless.png`}
+              src={withBase('assets/images/creations/dress-red-palm-sleeveless.png')}
               alt="Vestido sin mangas confeccionado por Aida"
               class="dlp-creacion__image"
               loading="lazy"
@@ -285,7 +286,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
         <div class="dlp-creacion dlp-reveal dlp-reveal--delay-4">
           <div class="dlp-creacion__image-wrapper">
             <img
-              src={`${base}/assets/images/creations/dress-blue-flowers-shirtdress.png`}
+              src={withBase('assets/images/creations/dress-blue-flowers-shirtdress.png')}
               alt="Vestido camisero confeccionado por Aida"
               class="dlp-creacion__image"
               loading="lazy"
@@ -301,7 +302,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
         <div class="dlp-creacion dlp-reveal dlp-reveal--delay-5">
           <div class="dlp-creacion__image-wrapper">
             <img
-              src={`${base}/assets/images/creations/dress-beach-fitted-top-tulle-skirt.jpeg`}
+              src={withBase('assets/images/creations/dress-beach-fitted-top-tulle-skirt.jpeg')}
               alt="Vestido playero confeccionado por Aida"
               class="dlp-creacion__image"
               loading="lazy"
@@ -317,7 +318,7 @@ const heroImage = `${base}/assets/images/me/aida-1-cepia.png`;
         <div class="dlp-creacion dlp-reveal dlp-reveal--delay-6">
           <div class="dlp-creacion__image-wrapper">
             <img
-              src={`${base}/assets/images/creations/dress-university-prom.png`}
+              src={withBase('assets/images/creations/dress-university-prom.png')}
               alt="Vestido de graduación confeccionado por Aida"
               class="dlp-creacion__image"
               loading="lazy"
