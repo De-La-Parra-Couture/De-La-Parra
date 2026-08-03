@@ -3,8 +3,9 @@
 // Componente de pie de página para De la Parra Couture
 // Cierre elegante y cálido, como el final de una conversación
 const base = import.meta.env.BASE_URL;
-const logoMobile = `${base}/header-opt-1-mobile.png`;
-const logoDesktop = `${base}/header-opt-2.png`;
+const withBase = (path: string) => `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
+const logoMobile = withBase('header-opt-1-mobile.png');
+const logoDesktop = withBase('header-opt-2.png');
 ---
 
 <footer class="dlp-footer">
@@ -32,19 +33,22 @@ const logoDesktop = `${base}/header-opt-2.png`;
       <nav class="dlp-footer__nav" aria-label="Navegación del pie de página">
         <ul class="dlp-footer__nav-list">
           <li class="dlp-footer__nav-item">
-            <a href="#aida" class="dlp-footer__nav-link">La Artesana</a>
+            <a href={`${base}#aida`} class="dlp-footer__nav-link">La Artesana</a>
           </li>
           <li class="dlp-footer__nav-item">
-            <a href="#oficio" class="dlp-footer__nav-link">Mi Oficio</a>
+            <a href={`${base}#oficio`} class="dlp-footer__nav-link">Mi Oficio</a>
           </li>
           <li class="dlp-footer__nav-item">
-            <a href="#creaciones" class="dlp-footer__nav-link">Creaciones</a>
+            <a href={`${base}#creaciones`} class="dlp-footer__nav-link">Creaciones</a>
           </li>
           <li class="dlp-footer__nav-item">
-            <a href="#voces" class="dlp-footer__nav-link">Voces</a>
+            <a href={`${base}#voces`} class="dlp-footer__nav-link">Voces</a>
           </li>
           <li class="dlp-footer__nav-item">
-            <a href="#conversemos" class="dlp-footer__nav-link">Conversemos</a>
+            <a href={`${base}#conversemos`} class="dlp-footer__nav-link">Conversemos</a>
+          </li>
+          <li class="dlp-footer__nav-item">
+            <a href={withBase('blog')} class="dlp-footer__nav-link">El Diario</a>
           </li>
         </ul>
       </nav>
