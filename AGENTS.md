@@ -225,3 +225,41 @@ Siempre que exista una decisión entre mostrar una prenda o mostrar el proceso h
 Si una decisión hace que el sitio se parezca más a una tienda de ropa, probablemente es incorrecta.
 
 Si una decisión hace que el sitio se parezca más al portafolio personal de una artesana contemporánea, probablemente es correcta.
+
+---
+
+# Convenciones de Commits
+
+Todo commit debe seguir Conventional Commits en español.
+
+Formato:
+
+```
+tipo(alcance): descripción
+```
+
+Tipos permitidos:
+
+- `feat` — nueva funcionalidad
+- `fix` — corrección de errores
+- `refactor` — cambio interno sin alterar comportamiento
+- `style` — cambios de formato, estilos o estructura visual
+- `docs` — documentación
+- `chore` — tareas de mantenimiento, configuraciones, dependencias
+- `perf` — mejoras de rendimiento
+- `test` — pruebas
+
+Reglas:
+
+- La descripción en imperativo y minúscula, sin punto final.
+- El alcance indica la zona del proyecto (p. ej. `blog`, `keystatic`, `deploy`, `styles`).
+- Enfocarse en el porqué del cambio, no en el qué.
+- Un commit por tarea lógica.
+
+Ejemplos:
+
+```
+feat(keystatic): activar modo git con login de GitHub
+fix(blog): corregir resolución de portadas
+chore(deploy): configurar GitHub Pages con Actions
+```
