@@ -6,8 +6,10 @@ const base = import.meta.env.BASE_URL;
 const withBase = (path: string) => `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
 const logoMobile = withBase('header-opt-1-mobile.png');
 const logoDesktop = withBase('header-opt-2.png');
-// El panel de administración solo existe en el build de Vercel/local
-const hasAdmin = process.env.SKIP_KEYSTATIC !== 'true';
+// El panel de administración vive en Vercel; en el build estático (GitHub Pages)
+// el ícono enlaza directo al panel de Vercel.
+const isStatic = process.env.SKIP_KEYSTATIC === 'true';
+const adminUrl = isStatic ? 'https://de-la-parra.vercel.app/admin' : withBase('admin');
 ---
 
 <header class="dlp-header" id="dlp-header">
@@ -30,13 +32,11 @@ const hasAdmin = process.env.SKIP_KEYSTATIC !== 'true';
 
     <!-- Acciones (usuario + menú) -->
     <div class="dlp-header__actions">
-      {
-        hasAdmin && (
-          <a
-            href={withBase('admin')}
-            class="dlp-header__user"
-            aria-label="Administración de contenido"
-          >
+      <a
+        href={adminUrl}
+        class="dlp-header__user"
+        aria-label="Administración de contenido"
+      >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -51,8 +51,6 @@ const hasAdmin = process.env.SKIP_KEYSTATIC !== 'true';
               <circle cx="12" cy="7" r="4" />
             </svg>
           </a>
-        )
-      }
 
       <!-- Botón de menú -->
       <button
