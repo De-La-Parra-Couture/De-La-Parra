@@ -19,6 +19,15 @@ export default config({
     : {
         kind: 'local',
       },
+  ui: {
+    brand: {
+      // name es obligatorio en la API; un espacio lo deja invisible para mostrar solo el logo
+      name: ' ',
+      mark: () => (
+        <img src="/header-opt-2.png" alt="De la Parra Couture" height={24} />
+      ),
+    },
+  },
   collections: {
     blog: collection({
       label: 'Blog',
