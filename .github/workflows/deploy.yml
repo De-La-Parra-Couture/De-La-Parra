@@ -37,6 +37,8 @@ jobs:
 
       - name: Build Astro
         run: npm run build
+        env:
+          SKIP_KEYSTATIC: 'true'
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,0 +1,246 @@
+// =============================================================================
+// De la Parra Couture — Blog: vista de entrada (post)
+// =============================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+#dlp-blog-post {
+  background: $dlp-color-bg;
+}
+
+.dlp-post__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+// ── Enlace de retorno ────────────────────────────────────────────────────────
+.dlp-post__back {
+  @include font-body;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $dlp-color-accent;
+  margin-bottom: 4rem;
+  transition: opacity $dlp-transition-base;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+// ── Cabecera ─────────────────────────────────────────────────────────────────
+.dlp-post__header {
+  margin-bottom: 3rem;
+}
+
+.dlp-post__pretitle {
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: $dlp-color-accent;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: $dlp-color-accent;
+    opacity: 0.5;
+  }
+}
+
+.dlp-post__date {
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $dlp-color-accent;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.dlp-post__title {
+  @include font-heading;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0;
+}
+
+// ── Portada ──────────────────────────────────────────────────────────────────
+.dlp-post__figure {
+  margin: 0 0 3rem;
+}
+
+.dlp-post__cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+// ── Cuerpo ───────────────────────────────────────────────────────────────────
+.dlp-prose {
+  @include font-body;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: $dlp-color-text;
+
+  > * + * {
+    margin-top: 1.5rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.9;
+  }
+
+  h2 {
+    @include font-heading;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 3rem 0 1.5rem;
+  }
+
+  h3 {
+    @include font-heading;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 400;
+    margin: 2.5rem 0 1.25rem;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+  }
+
+  ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin: 0;
+  }
+
+  li {
+    margin-top: 0.5rem;
+    line-height: 1.8;
+
+    &::marker {
+      color: $dlp-color-accent;
+    }
+  }
+
+  blockquote {
+    margin: 2.5rem 0;
+    padding: 1rem 0 1rem 1.75rem;
+    border-left: 2px solid $dlp-color-accent;
+
+    p {
+      @include font-heading;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      line-height: 1.6;
+      opacity: 0.8;
+      margin: 0;
+    }
+  }
+
+  a {
+    color: $dlp-color-text;
+    text-decoration: underline;
+    text-decoration-color: $dlp-color-accent;
+    text-underline-offset: 3px;
+    transition: color $dlp-transition-base;
+
+    &:hover {
+      color: $dlp-color-accent;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    margin: 2.5rem 0;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid $dlp-color-border;
+    margin: 3rem 0;
+  }
+}
+
+// ── Paginación ───────────────────────────────────────────────────────────────
+.dlp-post__pagination {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid $dlp-color-border;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.dlp-post__page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: $dlp-color-secondary;
+  border: 1px solid $dlp-color-border;
+  transition: all $dlp-transition-medium;
+
+  &:hover {
+    border-color: $dlp-color-accent;
+    transform: translateY(-2px);
+  }
+
+  &--next {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  &--placeholder {
+    border-color: transparent;
+    background: transparent;
+  }
+}
+
+.dlp-post__page-label {
+  @include font-body;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $dlp-color-accent;
+  opacity: 0.8;
+}
+
+.dlp-post__page-title {
+  @include font-heading;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.3;
+}

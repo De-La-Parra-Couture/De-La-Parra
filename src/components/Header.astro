@@ -3,8 +3,13 @@
 // Componente de navegación para De la Parra Couture
 // Menú overlay minimalista con ritmo lento
 const base = import.meta.env.BASE_URL;
-const logoMobile = `${base}/header-opt-1-mobile.png`;
-const logoDesktop = `${base}/header-opt-2.png`;
+const withBase = (path: string) => `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
+const logoMobile = withBase('header-opt-1-mobile.png');
+const logoDesktop = withBase('header-opt-2.png');
+// El panel de administración vive en Vercel; en el build estático (GitHub Pages)
+// el ícono enlaza directo al panel de Vercel.
+const isStatic = process.env.SKIP_KEYSTATIC === 'true';
+const adminUrl = isStatic ? 'https://de-la-parra.vercel.app/admin' : withBase('admin');
 ---
 
 <header class="dlp-header" id="dlp-header">
@@ -25,21 +30,44 @@ const logoDesktop = `${base}/header-opt-2.png`;
       </picture>
     </a>
 
-    <!-- Botón de menú -->
-    <button
-      class="dlp-header__menu-toggle"
-      id="dlp-menu-toggle"
-      aria-controls="dlp-main-navigation"
-      aria-label="Abrir menú de navegación"
-      aria-expanded="false"
-      type="button"
-    >
-      <span class="dlp-header__menu-label">Menú</span>
-      <span class="dlp-header__menu-icon">
-        <span class="dlp-header__menu-line" id="dlp-menu-line-1"></span>
-        <span class="dlp-header__menu-line" id="dlp-menu-line-2"></span>
-      </span>
-    </button>
+    <!-- Acciones (usuario + menú) -->
+    <div class="dlp-header__actions">
+      <a
+        href={adminUrl}
+        class="dlp-header__user"
+        aria-label="Administración de contenido"
+      >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </a>
+
+      <!-- Botón de menú -->
+      <button
+        class="dlp-header__menu-toggle"
+        id="dlp-menu-toggle"
+        aria-controls="dlp-main-navigation"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        type="button"
+      >
+        <span class="dlp-header__menu-label">Menú</span>
+        <span class="dlp-header__menu-icon">
+          <span class="dlp-header__menu-line" id="dlp-menu-line-1"></span>
+          <span class="dlp-header__menu-line" id="dlp-menu-line-2"></span>
+        </span>
+      </button>
+    </div>
   </div>
 
   <!-- Overlay del menú -->
@@ -52,33 +80,39 @@ const logoDesktop = `${base}/header-opt-2.png`;
     <div class="dlp-header__overlay-inner">
       <ul class="dlp-header__nav-list">
         <li class="dlp-header__nav-item">
-          <a href="#aida" class="dlp-header__nav-link" data-dlp-nav-link>
+          <a href={`${base}#aida`} class="dlp-header__nav-link" data-dlp-nav-link>
             <span class="dlp-header__nav-number">01</span>
             La Artesana
           </a>
         </li>
         <li class="dlp-header__nav-item">
-          <a href="#oficio" class="dlp-header__nav-link" data-dlp-nav-link>
+          <a href={`${base}#oficio`} class="dlp-header__nav-link" data-dlp-nav-link>
             <span class="dlp-header__nav-number">02</span>
             Mi Oficio
           </a>
         </li>
         <li class="dlp-header__nav-item">
-          <a href="#creaciones" class="dlp-header__nav-link" data-dlp-nav-link>
+          <a href={`${base}#creaciones`} class="dlp-header__nav-link" data-dlp-nav-link>
             <span class="dlp-header__nav-number">03</span>
             Creaciones
           </a>
         </li>
         <li class="dlp-header__nav-item">
-          <a href="#voces" class="dlp-header__nav-link" data-dlp-nav-link>
+          <a href={`${base}#voces`} class="dlp-header__nav-link" data-dlp-nav-link>
             <span class="dlp-header__nav-number">04</span>
             Voces
           </a>
         </li>
         <li class="dlp-header__nav-item">
-          <a href="#conversemos" class="dlp-header__nav-link" data-dlp-nav-link>
+          <a href={`${base}#conversemos`} class="dlp-header__nav-link" data-dlp-nav-link>
             <span class="dlp-header__nav-number">05</span>
             Conversemos
+          </a>
+        </li>
+        <li class="dlp-header__nav-item">
+          <a href={withBase('blog')} class="dlp-header__nav-link" data-dlp-nav-link>
+            <span class="dlp-header__nav-number">06</span>
+            El Diario
           </a>
         </li>
       </ul>

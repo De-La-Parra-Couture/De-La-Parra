@@ -1,227 +1,290 @@
 # AGENTS.md
 
-## Rol
+## Role
 
-Siempre actúa como un equipo compuesto por:
+Always act as a team composed of:
 
 - Brand Strategist
 - Creative Director
-- UX Researcher
-- UX Designer
-- UI Designer
+  -UX Researcher
+  -UX Designer
+  -UI Designer
 - Frontend Engineer
 - Accessibility Specialist
 - SEO Specialist
 
-Todas las decisiones deben respetar la identidad de De la Parra Couture.
+All decisions must respect the identity of De la Parra Couture.
 
 ---
 
-# Qué es De la Parra Couture
+# What is De la Parra Couture
 
-De la Parra Couture es un atelier de diseño y confección dirigido por **Aida Susana Parra Parra**.
+De la Parra Couture is a design and clothing atelier directed by **Aida Susana Parra Parra**.
 
-No es una marca de producción masiva.
+It is not a mass produced brand.
 
-No es una tienda online.
+It is not an online store.
 
-No vende colecciones.
+Does not sell collections.
 
-No vende prendas listas para comprar.
+It does not sell ready-to-buy garments.
 
-Cada prenda es diseñada exclusivamente para una clienta.
+Each garment is designed exclusively for a client.
 
-Todo comienza con una conversación.
-
----
-
-# Qué vende realmente la marca
-
-Nunca pensar que vende vestidos.
-
-La marca vende:
-
-- confianza
-- acompañamiento
-- experiencia
-- asesoría
-- artesanía
-- diseño personalizado
-
-Los vestidos son únicamente el resultado del proceso.
+It all starts with a conversation.
 
 ---
 
-# Personalidad
+# What the brand really sells
 
-La marca debe sentirse:
+Never think that you sell dresses.
 
-- elegante
-- cercana
-- tranquila
-- refinada
-- cálida
-- humana
+The brand sells:
 
-Nunca:
+- trust
+- accompaniment
+- experience
+- advice
+- crafts
+- custom design
 
-- arrogante
-- fría
-- ostentosa
-- pretenciosa
-- intimidante
+The dresses are only the result of the process.
 
 ---
 
-# Filosofía
+# Personality
 
-La calidad siempre tiene prioridad sobre la velocidad.
+The brand must feel:
 
-Cada prenda:
+- elegant
+- close
+- calm
+- refined
+- warm
+- human
 
-- se diseña desde cero
-- tiene patronaje propio
-- se confecciona manualmente
-- recibe atención personalizada
+Never:
 
-La marca representa los valores del Slow Fashion.
-
----
-
-# Objetivo del sitio
-
-El sitio NO busca vender productos.
-
-Busca generar confianza.
-
-Al terminar la navegación una visitante debe pensar:
-
-> "Quiero que Aida diseñe mi vestido."
-
-No simplemente:
-
-> "Qué vestidos tan bonitos."
+- arrogant
+- cold
+- ostentatious
+- pretentious
+- intimidating
 
 ---
 
-# Principios UX
+# Philosophy
 
-Toda decisión debe responder una pregunta:
+Quality always takes priority over speed.
 
-¿Esto aumenta la confianza de la visitante?
+Each garment:
 
-Si la respuesta es no, probablemente no pertenece al proyecto.
+- is designed from scratch
+- has its own pattern
+- is made manually
+- receive personalized attention
 
----
-
-# Dirección visual
-
-Siempre priorizar:
-
-- espacios amplios
-- fotografías grandes
-- diseño editorial
-- ritmo lento
-- elegancia minimalista
-
-Evitar:
-
-- interfaces recargadas
-- sliders innecesarios
-- animaciones excesivas
-- elementos decorativos sin propósito
+The brand represents the values of Slow Fashion.
 
 ---
 
-# Tecnología
+# Purpose of the site
 
-Stack actual:
+The site is NOT seeking to sell products.
+
+Seek to generate trust.
+
+At the end of the navigation, a visitor should think:
+
+> "I want Aida to design my dress."
+
+Not simply:
+
+> "What pretty dresses."
+
+---
+
+#UX Principles
+
+Every decision must answer one question:
+
+Does this increase the visitor's confidence?
+
+If the answer is no, you probably don't belong in the project.
+
+---
+
+# Visual direction
+
+Always prioritize:
+
+- large spaces
+- large photographs
+- editorial design
+- slow pace
+- minimalist elegance
+
+Avoid:
+
+- overloaded interfaces
+- unnecessary sliders
+- excessive animations
+- decorative elements without purpose
+
+---
+
+# Technology
+
+Current stack:
 
 - Astro
 - TypeScript
-- SCSS
+  -SCSS
 - TailwindCSS
 - GSAP
 
-Futuro:
+Future:
 
-- React Islands
+-React Islands
+
 - Supabase
 
-No introducir nuevas dependencias sin una justificación clara.
+Do not introduce new dependencies without a clear justification.
 
 ---
 
-# Reglas CSS
+# CSS rules
 
-Tailwind debe utilizarse únicamente para:
+Tailwind should only be used for:
 
 - Layout
 - Grid
 - Flex
-- Espaciado
-- Utilidades simples
+- Spacing
+- Simple utilities
 
-Toda la apariencia visual debe desarrollarse mediante SCSS.
+All visual appearance must be developed using SCSS.
 
-El HTML debe permanecer limpio y legible.
+The HTML must remain clean and readable.
 
-Preferir:
+Prefer:
 
 ```html
 <button class="btn btn-primary"></button>
 ```
 
-Evitar:
+Avoid:
 
 ```html
 <button
-  class="bg-black text-white px-6 py-4 rounded-xl shadow-lg transition duration-300 ..."
+  class="bg-black text-white px-6 py-4 rounded-xl shadow-lg transition duration-300..."
 ></button>
 ```
 
+Anything other than native Tailwind CSS classes must begin with ".dlp-" followed by what it represents, and must also follow the BEM guidelines for CSS class naming.
+
 ---
 
-# Código
+# Code
 
-Priorizar siempre:
+Always prioritize:
 
 - KISS
 - DRY
-- Componentes pequeños
-- Reutilización
-- Alto rendimiento
-- Accesibilidad
+- Small components
+- Reuse
+- High performance
+- Accessibility
 - SEO
 
-Evitar sobreingeniería.
+Avoid overengineering.
 
 ---
 
-# Animaciones
+# Animations
 
-Las animaciones deben ser discretas.
+Animations should be unobtrusive.
 
-Nunca deben distraer.
+They should never be distracting.
 
-Deben reforzar la sensación de elegancia.
+They should reinforce the feeling of elegance.
 
-GSAP se utilizará únicamente cuando aporte valor real a la experiencia.
-
----
-
-# Contenido
-
-El protagonista del sitio no son los vestidos.
-
-La protagonista es **Aida Susana Parra**.
-
-Siempre que exista una decisión entre mostrar una prenda o mostrar el proceso humano detrás de ella, priorizar el proceso.
+GSAP will only be used when it adds real value to the experience.
 
 ---
 
-# Regla de Oro
+# Content
 
-Si una decisión hace que el sitio se parezca más a una tienda de ropa, probablemente es incorrecta.
+The protagonist of the site is not the dresses.
 
-Si una decisión hace que el sitio se parezca más al portafolio personal de una artesana contemporánea, probablemente es correcta.
+The protagonist is **Aida Susana Parra**.
+
+Whenever there is a decision between showing a garment or showing the human process behind it, prioritize the process.
+
+---
+
+# Golden Rule
+
+If a decision makes the site more like a clothing store, it's probably wrong.
+
+If a decision makes the site more like a contemporary artisan's personal portfolio, it's probably right.
+
+---
+
+# Commits Conventions
+
+All commits must follow Conventional Commits in English.
+
+Format:
+
+```
+feat(dashboard): description
+```
+
+Allowed types:
+
+- `feat` — new functionality
+- `fix` — bug fixes
+- `refactor` — internal change without altering behavior
+- `style` — format changes, styles or visual structure
+- `docs` — documentation
+- `chore` — maintenance tasks, configurations, dependencies
+- `perf` — performance improvements
+- `test` — tests
+
+Rules:
+
+- The description in imperative and lower case, without a full stop.
+- The scope indicates the area of ​​the project (e.g. `blog`, `keystatic`, `deploy`, `styles`).
+- Focus on the why of the change, not the what.
+- One commit per logical task.
+
+Examples:
+
+```
+feat(keystatic): activate git mode with GitHub login
+fix(blog): correct cover resolution
+chore(deploy): configure GitHub Pages with Actions
+```
+
+Commits must be self-contained. This means that commits must be reversible without breaking the entire integration being worked on. For example, if more than X features were worked on in a session, the commits, no matter how many there are, must be able to return specific changes without breaking everything already integrated. Several well-written, self-contained commits are better than a single one that could break everything if rolled back.
+
+Pushes to the main "master" branch are never done; they must be pushed to the "dev" branch at a minimum. If code is needed in production, it must go through a pull request. The organization and/or developers must verify, correct, and/or accept the corresponding pull request. If we are working on any branch other than "master" or "dev," and the developer decides to merge into "dev," in those cases it is possible, but for production, it is always necessary to submit a pull request to "master."
+
+# Rutas relativas
+
+Para las rutas de documentos referenciados en el proyecto, siempre se debe de usar un resolvedor de rutas relativas para 3 casos diferentes.
+
+**Caso 1 - Github Pages:**
+
+- https://de-la-parra-couture.github.io/De-La-Parra
+
+**Caso 2 - local:**
+
+- localhost:4321
+
+**Caso 3:**
+
+- https://delaparra.co/
+
+El dominio final de la pagina aun no se ha adquirido, pero se debe dejar los 3 casos, en caso de que cualquiera de los 3 este funcionando
